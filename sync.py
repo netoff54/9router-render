@@ -5,10 +5,11 @@ Downloads backup on startup, uploads changes every 5 minutes
 """
 
 import os
+import sys
 import time
 import shutil
 from datetime import datetime
-from huggingface_hub import HfApi, Repository
+from huggingface_hub import HfApi, Repository, snapshot_download
 import hashlib
 import json
 

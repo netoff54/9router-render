@@ -3,6 +3,8 @@ FROM node:20-slim
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     python3 \
+    python3-full \
+    python3-venv \
     python3-pip \
     build-essential \
     curl \
@@ -16,8 +18,9 @@ COPY sync.py /app/sync.py
 COPY requirements.txt /app/requirements.txt
 RUN chmod +x /app/sync.py
 
-# Install Python dependencies
-RUN pip3 install -r /app/requirements.txt --no-cache-dir
+# Install Python dependencies with virtual environment
+RUN python3 -m venv /opt/venv && \
+    /opt/venv/bin/pip install -r /app/requirements.txt --no-cache-dir
 
 # Install 9Router globally
 RUN npm install -g 9router
@@ -40,8 +43,8 @@ echo "DATA_DIR: $DATA_DIR"\n\
 echo "PORT: $PORT"\n\
 echo "HF_TOKEN: ${HF_TOKEN:0:10}..."\n\
 \n\
-# Start sync script in background\n\
-python3 /app/sync.py &\n\
+# Start sync script in background using virtual environment\n\
+/opt/venv/bin/python /app/sync.py &\n\
 SYNC_PID=$!\n\
 \n\
 # Start 9Router in foreground\n\
