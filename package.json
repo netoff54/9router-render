@@ -1,0 +1,22 @@
+{
+  "name": "9router-workspace",
+  "version": "1.0.0",
+  "description": "9Router dengan data disimpan di workspace (9router-data)",
+  "private": true,
+  "scripts": {
+    "start": "node start-9router.js",
+    "start:bg": "powershell -ExecutionPolicy Bypass -File start-9router-background.ps1",
+    "stop": "powershell -ExecutionPolicy Bypass -File stop-9router.ps1",
+    "dashboard": "powershell -ExecutionPolicy Bypass -File open-dashboard.ps1",
+    "autostart:install": "powershell -ExecutionPolicy Bypass -File install-autostart.ps1",
+    "autostart:uninstall": "powershell -ExecutionPolicy Bypass -File uninstall-autostart.ps1",
+    "start:data": "cross-env DATA_DIR=\"D:\\Milih Sesuai\\9router claudeflare\\9router-data\" 9router"
+  },
+  "dependencies": {
+    "9router": "^0.5.55",
+    "cross-env": "^10.1.0"
+  },
+  "allowScripts": {
+    "9router@0.5.55": true
+  }
+}
