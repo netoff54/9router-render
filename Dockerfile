@@ -5,8 +5,6 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-full \
     python3-venv \
-    python3-pip \
-    build-essential \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
@@ -20,6 +18,7 @@ RUN chmod +x /app/sync.py
 
 # Install Python dependencies with virtual environment
 RUN python3 -m venv /opt/venv && \
+    /opt/venv/bin/pip install --upgrade pip && \
     /opt/venv/bin/pip install -r /app/requirements.txt --no-cache-dir
 
 # Install 9Router globally
