@@ -19,6 +19,8 @@ services:
         value: "true"
       - key: CORS_ORIGIN
         value: "*"
+      - key: INITIAL_PASSWORD
+        value: masuk123
 
       # ─── HuggingFace Sync (restore data dari Railway!) ──────
       # PENTING: ini yang bikin data Railway terbawa ke Render
@@ -45,6 +47,5 @@ services:
       # - key: TWILIO_PHONE_NUMBER
       #   value: your_number_here
 
-    healthCheckPath: /
     # Auto-deploy dari GitHub setiap push
     autoDeploy: true

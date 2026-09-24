@@ -38,6 +38,7 @@ ENV MESSAGING_API_PORT=5000
 ENV NODE_ENV=production
 ENV AUTH_COOKIE_SECURE=false
 ENV CI=true
+ENV INITIAL_PASSWORD=masuk123
 
 # Only expose the single public port (Render assigns $PORT automatically)
 EXPOSE 20128
@@ -71,7 +72,7 @@ echo "[messaging-api] Started internally on port $MESSAGING_API_PORT (PID $API_P
 (
   sleep 90
   while true; do
-    STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "http://localhost:${PORT}/" 2>/dev/null || echo "fail")
+    STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:${PORT}/" 2>/dev/null || echo "fail")
     echo "[self-ping] $(date '+%H:%M:%S') - status: $STATUS"
     sleep 300
   done
@@ -80,6 +81,7 @@ PING_PID=$!
 echo "[self-ping] Anti-sleep loop started (PID $PING_PID)"
 
 # [4] Start 9Router in foreground (this is the main process)
+export INITIAL_PASSWORD="${INITIAL_PASSWORD:-masuk123}"
 export DISPLAY=""
 export WAYLAND_DISPLAY=""
 export XDG_SESSION_TYPE=""
