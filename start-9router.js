@@ -15,13 +15,14 @@ console.log("==================================================");
 console.log("  9Router — Data dari workspace");
 console.log(`  DATA_DIR: ${dataDir}`);
 console.log("==================================================");
+console.log("Starting 9Router with skip-update and log options...");
 console.log("");
 
 // Jalankan CLI 9router dari node_modules lokal
 const cliPath = path.join(workspaceDir, "node_modules", "9router", "cli.js");
 const args = process.argv.slice(2);
 
-const child = spawn(process.execPath, ["--dns-result-order=ipv4first", cliPath, ...args], {
+const child = spawn(process.execPath, ["--dns-result-order=ipv4first", cliPath, "--skip-update", "--log", ...args], {
   stdio: "inherit",
   windowsHide: false,
 });

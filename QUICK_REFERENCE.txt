@@ -1,0 +1,146 @@
+================================================================================
+                   CLINE RAILWAY CONTROL - QUICK REFERENCE
+================================================================================
+
+YOUR SERVER: 9router-deploy (production) ✅ DEPLOYED & RUNNING
+
+URL: https://9router-deploy-production-3a0f.up.railway.app
+API Key: sk-05b0d0b73a8aee96-25ki8w-e142ea50
+Status: Online & Ready
+
+================================================================================
+STEP 1: SETUP CLINE (One-time, 5 minutes)
+================================================================================
+
+Read: CLINE_REMOTE_ACTIVATION.md
+
+Quick:
+1. Edit %APPDATA%\Claude\globalState.json
+   "openAiBaseUrl": "https://9router-deploy-production-3a0f.up.railway.app/v1"
+
+2. Edit %APPDATA%\Claude\providers.json
+   Add provider with key: sk-05b0d0b73a8aee96-25ki8w-e142ea50
+
+3. Restart Cline
+
+✅ DONE! Cline now uses Railway instead of lokal.
+
+================================================================================
+STEP 2: CONTROL SERVER VIA CLINE
+================================================================================
+
+Read: CLINE_SERVER_CONTROL_PROMPT.md
+
+Copy-paste this to Cline chat:
+───────────────────────────────────────────────────────────
+I have 9Router on Railway: https://9router-deploy-production-3a0f.up.railway.app
+API Key: sk-05b0d0b73a8aee96-25ki8w-e142ea50
+
+Help me check/fix the server. Available commands:
+- railway status
+- railway logs -f
+- railway restart
+- railway variables
+
+Start by checking status.
+───────────────────────────────────────────────────────────
+
+Then tell Cline:
+• "Check server status"
+• "Show logs"
+• "Restart if needed"
+• "Any errors?"
+• "Test the API"
+
+================================================================================
+STEP 3: PAUSE SERVER (Save laptop resources)
+================================================================================
+
+Read: CLINE_SERVER_PAUSE_PROMPT.md
+
+Tell Cline:
+───────────────────────────────────────────────────────────
+Pause my Railway 9Router server to save resources.
+Keep all data. I'll resume later when needed.
+───────────────────────────────────────────────────────────
+
+Benefits:
+✅ Save ~$5-10/month
+✅ All data preserved
+✅ Resume in seconds
+✅ No data loss
+
+To Resume:
+───────────────────────────────────────────────────────────
+Resume my Railway server now.
+───────────────────────────────────────────────────────────
+
+================================================================================
+CREDENTIALS (Keep Secret!)
+================================================================================
+
+API Key:          sk-05b0d0b73a8aee96-25ki8w-e142ea50
+HF Token:         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
+Server:           9router-deploy (production)
+
+================================================================================
+ENDPOINTS
+================================================================================
+
+Dashboard:        https://9router-deploy-production-3a0f.up.railway.app
+API Base:         https://9router-deploy-production-3a0f.up.railway.app/v1
+Models:           GET /v1/models
+Chat:             POST /v1/chat/completions
+Health:           GET /api/health
+
+================================================================================
+QUICK CLINE REQUESTS
+================================================================================
+
+"Morning check - server up?"
+"Show me logs"
+"Restart server"
+"Pause server for now"
+"Resume server"
+"Any errors?"
+"Check performance"
+"Test API endpoint"
+
+================================================================================
+AFTER SETUP:
+================================================================================
+
+✅ Use Cline remotely (anywhere)
+✅ Tell Cline to manage server
+✅ Monitor health via Cline
+✅ Pause when not using
+✅ Resume in seconds
+✅ No local 9Router needed
+✅ Laptop stays light
+
+================================================================================
+FILES:
+================================================================================
+
+Setup:
+  • CLINE_REMOTE_ACTIVATION.md      ← Setup Cline
+
+Prompts:
+  • CLINE_SERVER_CONTROL_PROMPT.md  ← Control
+  • CLINE_SERVER_PAUSE_PROMPT.md    ← Pause/Resume
+  • QUICK_REFERENCE.txt             ← This file
+
+Reference:
+  • CLINE_RAILWAY_CONFIG.md
+  • RAILWAY_API_GUIDE.md
+  • DEPLOYMENT_CHECKLIST.md
+
+================================================================================
+                    EVERYTHING READY! 🎉
+================================================================================
+
+Setup: 5 min
+Control: Via Cline
+Pause/Resume: 1 command
+
+GO! 🚀

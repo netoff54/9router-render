@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: 9router
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    # Render auto-assigns PORT env var — 9Router will use it
+    plan: free  # ganti ke 'starter' ($7/bln) kalau mau no-sleep
+    envVars:
+      # ─── 9Router Core ───────────────────────────────────────
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_COOKIE_SECURE
+        value: "false"
+      - key: CI
+        value: "true"
+      - key: DATA_DIR
+        value: /app/data
+      - key: ENABLE_API
+        value: "true"
+      - key: CORS_ORIGIN
+        value: "*"
+
+      # ─── HuggingFace Sync (restore data dari Railway!) ──────
+      # PENTING: ini yang bikin data Railway terbawa ke Render
+      - key: HF_TOKEN
+        value: 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  # ← token HF lu
+      - key: HF_USERNAME
+        value: otakcoding
+      - key: HF_DATASET_NAME
+        value: 9router-data-backup
+      - key: SYNC_INTERVAL
+        value: "300"
+
+      # ─── Messaging API (internal only) ──────────────────────
+      - key: MESSAGING_API_PORT
+        value: "5000"
+      # Isi kalau pakai Telegram:
+      # - key: TELEGRAM_BOT_TOKEN
+      #   value: your_token_here
+      # Isi kalau pakai Twilio:
+      # - key: TWILIO_ACCOUNT_SID
+      #   value: your_sid_here
+      # - key: TWILIO_AUTH_TOKEN
+      #   value: your_token_here
+      # - key: TWILIO_PHONE_NUMBER
+      #   value: your_number_here
+
+    healthCheckPath: /
+    # Auto-deploy dari GitHub setiap push
+    autoDeploy: true

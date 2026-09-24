@@ -12,3 +12,22 @@ npm-debug.log
 dist/
 build/
 .next-cli-build/
+
+# ===== Secrets & sensitive data =====
+# Local env with HF token etc. (jangan pernah di-commit)
+.env
+.env.railway
+.env.messaging
+.env.production
+*.session
+__pycache__/
+*.pyc
+
+# 9Router data (berisi provider API keys, jwt-secret, cli-secret)
+9router-data/
+
+# Cline remote toggle state
+.cline/
+
+# Railway CLI link file (kalau dibuat di folder)
+railway.json

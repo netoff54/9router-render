@@ -13,10 +13,10 @@
     "start:data": "cross-env DATA_DIR=\"D:\\Milih Sesuai\\9router claudeflare\\9router-data\" 9router"
   },
   "dependencies": {
-    "9router": "^0.5.55",
+    "9router": "^0.5.69",
     "cross-env": "^10.1.0"
   },
   "allowScripts": {
-    "9router@0.5.55": true
+    "9router@0.5.69": true
   }
 }

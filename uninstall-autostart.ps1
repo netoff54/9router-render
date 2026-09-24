@@ -14,6 +14,6 @@ if (Test-Path $shortcutPath) {
     Write-Host "Shortcut : $shortcutPath"
     Write-Host "9Router tidak lagi otomatis nyala saat login."
 } else {
-    Write-Host "ℹ️ Tidak ditemukan shortcut autostart 9Router."
+    Write-Host "[INFO] Tidak ditemukan shortcut autostart 9Router."
     Write-Host "   (Mungkin sudah dihapus sebelumnya.)"
 }
